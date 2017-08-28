@@ -22,21 +22,38 @@ html, body {
 	display: none;
 }
 
+.video-playlist a:nth-child(2) {
+    animation-delay: 11.8s;
+}
+.video-playlist a:nth-child(3) {
+    animation-delay: 21.5s;
+}
+.video-playlist a:nth-child(4) {
+    animation-delay: 34.5s;
+}
+.video-playlist a:nth-child(5) {
+    animation-delay: 44.5s;
+}
+.video-playlist a:nth-child(6) {
+    animation-delay: 57s;
+}
+
 @keyframes fadeout {
   from {opacity: 0.2;}
   to {opacity: 1;}
 }
 
 @keyframes videoFade {
-    0% { opacity: 0.2; animation-timing-function: ease-in; }
-    8% { opacity: 1; animation-timing-function: ease-out; }
-    17% { opacity: 1 }
+    0% { opacity: 1 }
+    5% { opacity: 1 }
     25% { opacity: 0 }
-    100% { opacity: 0 }
+    75% { opacity: 0 }
+    95% {opacity: 1 }
+    100% { opacity: 1 }
 }
 
 .color-over {
-  /*animation: videoFade 70s linear infinite 0s;*/
+  animation: videoFade 12s linear infinite 0s;
   background-color: white;
   opacity: 0.2;
   width: 100%;
