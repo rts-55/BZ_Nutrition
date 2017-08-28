@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BZ | Nutrition</title>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link href="./resources/css/style.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="landing-page">
+      <div id="video-box">
+        <video class="landing-video" width=100% autoplay muted src="./resources/media/video/Two-Swimmers.mp4">
+          <!--<source src="./resources/media/video/Two-Swimmers.mp4" type="video/mp4" />Doh! Your browser does not support the video type. Try Chrome or Firefox!-->
+        </video>
+        <div class="video-playlist">
+		      <a href="./resources/media/video/Two-Swimmers.mp4" class="current-video"></a>
+          <a href="./resources/media/video/Ski.mp4"></a>
+          <a href="./resources/media/video/Keep-Running.mp4"></a>
+          <a href="./resources/media/video/Motorcycle.mp4"></a>
+		      <a href="./resources/media/video/Surf.mp4"></a>
+          <a href="./resources/media/video/Beach-Ball.mp4"></a>
+	      </div>
+      </div>
+      <div class="color-over">
+      </div>
+      <div class="info-box">
+        <p>BZ | Nutrition</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Copyright 2017 | Blue Zone Nutrition LLC</p>
+    </footer>
+
+    <script type="text/javascript">
+      var video = document.querySelector('video');
+      var links = document.querySelectorAll('.video-playlist > a');
+      i=0;
+
+      video.addEventListener( 'ended', function () {
+        i++;
+        if (i >= links.length) {
+          current = 0;
+        }
+        var a = links.item(i);
+        a.className = 'current-video';
+        video.setAttribute('src', a.href);
+    	  video.play();
+    	} );
+
+      var e = document.getElementsByClassName("current-video");
+      e.style.opacity = 0;
+
+      var vid = document.getElementsByClassName("current-video");
+      vid.oncanplaythrough = function() {
+        setTimeout(function() {
+        var e = document.getElementsByClassName("current-video");
+        fade(e);
+        }, 5000);
+      };
+
+      function fade(element) {
+        var op = 0;
+        var timer = setInterval(function() {
+          if (op >= 1) clearInterval(timer);
+          element.style.opacity = op;
+          element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+          op += op * 0.1 || 0.1;
+        }, 50);
+      }
+    </script>
+
+  </body>
+</html>
