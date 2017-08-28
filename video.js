@@ -25,8 +25,8 @@ alert(vid.duration);*/
 		allLinks[index].classList.add( 'current-video' );
 		currentVideo = index;
 ​
-		//source[1].src = videoDirectory + linkList[index] + '.webm';
-		video.src = videoDirectory + linkList[index] + '.mp4';
+		source[1].src = videoDirectory + linkList[index] + '.webm';
+		source[0] = videoDirectory + linkList[index] + '.mp4';
 ​
 		video.load();
 		video.play();
@@ -42,19 +42,15 @@ alert(vid.duration);*/
 	 * Play next video
 	 */
 
-  var video = document.querySelector('video');
-  var links = document.querySelectorAll('.video-playlist > a');
-  i=0;
-
-  video.addEventListener( 'ended', function () {
-    i++;
-    if (i >= links.length) {
-      currentVideo = 0;
-    }
-    var a = links.item(i);
-    a.className = 'current-video';
-    video.setAttribute('src', a.href);
-	  video.play();
-	} );
+ 	video.addEventListener( 'ended', function () {
+ 		allLinks[currentVideo].classList.remove( 'current-video' );
+ ​
+ 		nextVideo = currentVideo + 1;
+ 		if ( nextVideo >= linkNumber ) {
+ 			nextVideo = 0;
+ 		}
+ ​
+ 		playVideo( nextVideo );
+ 	} );
 ​
 } () );

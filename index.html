@@ -2,8 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>BZ | Nutrition</title>
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet">
     <link href="./resources/css/style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
@@ -24,7 +26,12 @@
       <div class="color-over">
       </div>
       <div class="info-box">
-        <p>BZ | Nutrition</p>
+        <div id="company-name">
+          <p><span>BLUE ZONE</span></br>nutrition</p>
+        </div>
+        <div id="slogan">
+          <p>YOUR</br><span>SUPER SELF</span></br>COMING SOON</p>
+        </div>
       </div>
     </div>
 
@@ -40,34 +47,13 @@
       video.addEventListener( 'ended', function () {
         i++;
         if (i >= links.length) {
-          current = 0;
-        }
+          i = 0;
+        };
         var a = links.item(i);
         a.className = 'current-video';
         video.setAttribute('src', a.href);
     	  video.play();
     	} );
-
-      var e = document.getElementsByClassName("current-video");
-      e.style.opacity = 0;
-
-      var vid = document.getElementsByClassName("current-video");
-      vid.oncanplaythrough = function() {
-        setTimeout(function() {
-        var e = document.getElementsByClassName("current-video");
-        fade(e);
-        }, 5000);
-      };
-
-      function fade(element) {
-        var op = 0;
-        var timer = setInterval(function() {
-          if (op >= 1) clearInterval(timer);
-          element.style.opacity = op;
-          element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-          op += op * 0.1 || 0.1;
-        }, 50);
-      }
     </script>
 
   </body>
